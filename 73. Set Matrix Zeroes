@@ -1,0 +1,70 @@
+
+URL:  https://leetcode.com/problems/set-matrix-zeroes/description/
+
+
+JAVA
+
+
+class Solution {
+
+    public void setZeroes(int[][] matrix) {
+        int nrow = matrix.length;
+        int ncol = matrix[0].length;
+
+        for (int r=0;r<nrow;r++)
+        {
+        for (int c=0;c<ncol;c++)
+        {
+        if (matrix[r][c]==0)
+            {
+            for(int i=0;i<ncol;i++)
+                if (matrix[r][i]!=0)
+                    matrix[r][i]='*';
+                else
+                    matrix[r][i]=0;
+            for(int i=0;i<nrow;i++)
+                if (matrix[i][c]!=0)
+                    matrix[i][c]='*';
+                else
+                    matrix[i][c]=0;
+            }
+        }
+        }
+
+        for(int i=0;i<nrow;i++)
+        {
+            for(int j=0;j<ncol;j++)
+            {
+                if (matrix[i][j]=='*')
+                    matrix[i][j]=0;
+            }
+        }
+        
+    }
+}
+
+
+PYTHON
+
+
+class Solution:
+    def setZeroes(self, matrix: List[List[int]]) -> None:
+        """
+        Do not return anything, modify matrix in-place instead.
+        """
+        nrow=len(matrix)
+        ncol=len(matrix[0])
+
+        for r in range(nrow):
+            for c in range(ncol):
+                if matrix[r][c]==0:
+                    for i in range(ncol):
+                        matrix[r][i]='*' if matrix[r][i]else 0
+                    for i in range(nrow):
+                        matrix[i][c]='*' if matrix[i][c] else 0
+
+
+        for r in range(nrow):
+            for c in range(ncol):
+                if matrix[r][c]=='*':
+                    matrix[r][c]=0
