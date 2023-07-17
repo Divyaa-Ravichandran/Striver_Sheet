@@ -1,0 +1,85 @@
+
+URL:  https://leetcode.com/problems/maximum-subarray/
+
+
+import sys
+class Solution:
+    def maxSubArray(self, nums: List[int]) -> int:
+        '''
+        if nums == []:
+            return 0
+        elif len(nums) == 1:
+            return nums[0]
+        elif len(nums) == 2:
+            return max(nums[0], nums[1], nums[0]+nums[1])
+        else:
+            all_neg = True
+            for entries in nums:
+                if entries >= 0:
+                    all_neg = False
+            if all_neg == False:
+                curr_sum = 0
+                max_sum = - sys.maxsize - 1
+                for i in range(len(nums)):
+                    curr_sum += nums[i]
+                    if curr_sum < 0:
+                        curr_sum = 0
+                    if curr_sum > max_sum:
+                        max_sum = curr_sum
+                return max_sum
+            else:
+                return max(nums)
+            '''
+
+        '''
+        max_so_far = -sys.maxsize - 1
+        max_ending_here = 0
+        size=len(nums)
+ 
+        for i in range(0, size):
+            max_ending_here = max_ending_here + nums[i]
+            if (max_so_far < max_ending_here):
+                max_so_far = max_ending_here
+ 
+            if max_ending_here < 0:
+                max_ending_here = 0
+        return max_so_far
+ 
+        '''
+
+        '''
+
+        # BRUTE TC:O(N^3) and SC:O(N)
+        maxi = -sys.maxsize - 1  # maximum sum
+        n=len(nums)
+        for i in range(n):
+            for j in range(i, n):
+            # subarray = arr[i.....j]
+                summ = 0
+
+            # add all the elements of subarray:
+                for k in range(i, j+1):
+                    summ += nums[k]
+
+                maxi = max(maxi, summ)
+
+        return maxi
+        '''
+
+
+
+# BETTER APPROACH : TC: O(N^2) SC: O(1)
+        maxi = -sys.maxsize - 1 # maximum sum
+        n=len(nums)
+        for i in range(n):
+            summ = 0
+            for j in range(i, n):
+            # current subarray = arr[i.....j]
+
+            #add the current element arr[j]
+            # to the sum i.e. sum of arr[i...j-1]
+                summ += nums[j]
+
+                maxi = max(maxi, summ) # getting the maximum
+
+        return maxi
