@@ -1,0 +1,51 @@
+
+
+URL:   https://www.codingninjas.com/studio/problems/merge-two-sorted-arrays-without-extra-space_6898839?utm_source=striver&utm_medium=website&utm_campaign=codestudio_a_zcourse&leftPanelTab=0
+
+
+
+from typing import *
+
+def mergeTwoSortedArraysWithoutExtraSpace(a : List[int], b : List[int]) -> int:
+    # Write your code here.
+    # Declare a 3rd array and 2 pointers:
+    n=len(a)
+    m=len(b)
+    arr3 = [0] * (n + m)
+    left = 0
+    right = 0
+    index = 0
+
+    # Insert the elements from the 2 arrays
+    # into the 3rd array using left and right
+    # pointers:
+    while left < n and right < m:
+        if a[left] <= b[right]:
+            arr3[index] = a[left]
+            left += 1
+            index += 1
+        else:
+            arr3[index] = b[right]
+            right += 1
+            index += 1
+
+    # If right pointer reaches the end:
+    while left < n:
+        arr3[index] = a[left]
+        left += 1
+        index += 1
+
+    # If left pointer reaches the end:
+    while right < m:
+        arr3[index] = b[right]
+        right += 1
+        index += 1
+
+    # Fill back the elements from arr3[]
+    # to a[] and b[]:
+    for i in range(n + m):
+        if i < n:
+            a[i] = arr3[i]
+        else:
+            b[i - n] = arr3[i]
+    pass
