@@ -1,0 +1,40 @@
+URL:  https://leetcode.com/problems/search-a-2d-matrix/description/
+
+
+
+
+class Solution:
+    def searchMatrix(self, matrix: List[List[int]], target: int) -> bool:
+        
+        a=[[0,1],[1,0],[0,-1],[-1,0]]
+        m=len(matrix)
+        n=len(matrix[0])
+        for i in range(m):
+            for j in range(n):
+                if(matrix[i][j]==target):
+                    return True
+                else:
+                    continue
+
+        
+        
+
+        '''
+        m=len(matrix)
+        n=len(matrix[0])
+        left=0
+        right=m*n-1
+
+        while left<=right:
+            mid=left+(right-left)//2
+            print (mid)
+            row,col=mid//n,mid%n
+            if matrix[row][col]<target:
+                left=mid+1
+            elif matrix[row][col]>target:
+                right=mid-1
+
+            else:
+                return True
+        return False
+        '''
