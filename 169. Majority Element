@@ -1,0 +1,28 @@
+
+
+URL:  https://leetcode.com/problems/majority-element/description/
+
+class Solution:
+    def majorityElement(self, nums: List[int]) -> int:
+        '''
+        if len(nums)==0:
+            return 0
+        if len(nums)==1:
+            return nums[0]
+        else:
+            dict={}
+            max_result=0
+            for entries in nums:
+                if entries in dict:
+                    dict[entries]+=1
+                    if dict[entries] > len(nums)/2:
+                        max_result=entries
+                        
+                else:
+                    dict[entries]=1
+            
+        return max_result
+        '''
+        n=len(nums)
+        nums.sort()
+        return nums[n//2]
