@@ -1,0 +1,24 @@
+
+
+URL:  https://leetcode.com/problems/majority-element-ii/description/
+
+
+class Solution:
+    def majorityElement(self, nums: List[int]) -> List[int]:
+        
+        
+        dic={}
+        
+        result=[]
+        
+        for entries in nums:
+            if entries in dic:
+                dic[entries]+=1        
+            else:
+                dic[entries]=1
+            
+        for i,v in dic.items():
+            if v > len(nums)//3:
+                result.append(i)
+        return result
+
