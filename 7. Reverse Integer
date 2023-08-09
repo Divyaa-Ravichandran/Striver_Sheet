@@ -1,0 +1,46 @@
+
+
+URL:  https://leetcode.com/problems/reverse-integer/description/
+
+
+
+class Solution:
+    def reverse(self, x: int) -> int:
+        '''
+        result, x_r = 0, abs(x)
+        while x_r:
+            result = result*10 + x_r % 10 
+            x_r //= 10
+        
+        if result > 2**31 -1 or x > 2**31-1 or result < -2**31 or x < -2**31:
+            return 0
+        return -result if x < 0 else result
+        '''
+        
+        '''
+        start=0
+        res=[int(j) for j in str(x)]
+        end=len(res)-1
+        while start<end:
+            res[start],res[end]=res[end],res[start]
+            start+=1
+            end-=1
+
+        return " ".join(res)
+        '''
+
+        reversed_int=0
+        remainder=0
+        x_r=abs(x)
+
+        while x_r>0:
+            remainder=x_r%10
+            print(remainder)
+            reversed_int=reversed_int*10+remainder
+            x_r=x_r//10
+
+        if reversed_int > 2**31 -1 or x > 2**31-1 or reversed_int < -2**31 or x < -2**31:
+            return 0
+        return -reversed_int if x<0 else reversed_int
+        
+
