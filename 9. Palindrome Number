@@ -1,0 +1,30 @@
+
+URL:  https://leetcode.com/problems/palindrome-number/
+
+
+class Solution:
+    def isPalindrome(self, X: int) -> bool:
+        
+        '''
+        if x<0 or (x%10==0 and x!=0):
+            return False
+        original_s=str(x)
+        print(original_s)
+        reverse_s=original_s[::-1]
+        
+        return original_s==reverse_s
+        
+        '''
+
+        Y=0
+        dummy=X
+        while X>0:
+            digit=X%10
+            Y=Y*10+digit
+            X=X//10
+
+        if dummy==Y:
+            return True
+        else:
+            return False
+        
