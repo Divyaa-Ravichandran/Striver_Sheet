@@ -2,7 +2,7 @@
 
 URL: https://leetcode.com/problems/two-sum/description/
 
-
+TC:o(n) AND SC:o(N)
 
 class Solution:
     def twoSum(self, nums: List[int], target: int) -> List[int]:
