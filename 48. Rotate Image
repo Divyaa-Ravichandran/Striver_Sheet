@@ -2,13 +2,15 @@
 URL:  https://leetcode.com/problems/rotate-image/description/
 
 
+
 class Solution:
     def rotate(self, matrix: List[List[int]]) -> None:
         """
         Do not return anything, modify matrix in-place instead.
         """
 
-
+         
+        
         #OPTIMAL TC: O(N*N) and SC: O(1)
         for i in range(len(matrix)):
             for j in range(i):
@@ -17,3 +19,22 @@ class Solution:
         
         for i in range(len(matrix)):
             matrix[i].reverse()
+        
+
+
+        '''
+
+        #Time Complexity: O(N*N) to linearly iterate and put it into some other matrix.
+
+        #Space Complexity: O(N*N) to copy it into some other matrix.
+        n = len(matrix)
+        rotated = [[0 for _ in range(n)] for _ in range(n)]
+        print(rotated)
+        for i in range(n):
+            for j in range(n):
+                rotated[j][n - i - 1] = matrix[i][j]
+        for i in range(n):
+            for j in range(n):
+                matrix[i][j]=rotated[i][j]
+
+        '''
